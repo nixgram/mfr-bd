@@ -40,5 +40,10 @@
       "!{projectRoot}/src/test-setup.[jt]s",
       "!{projectRoot}/test-setup.[jt]s"
     ]
+  },
+  "generators": {
+    "@nx/angular:component": {
+      "style": "css"
+    }
   }
 }
