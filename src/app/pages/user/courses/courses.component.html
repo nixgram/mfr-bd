@@ -1,1 +1,20 @@
-<p>courses works!</p>
+<div class="p-8">
+  <h1 class="text-4xl font-bold text-center text-gray-800 mb-10">Your Assigned Courses</h1>
+ 
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Sample course card -->
+    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+      <h2 class="text-xl font-semibold text-indigo-700">Angular Basics</h2>
+      <p class="mt-2 text-gray-600">Learn the fundamentals of Angular, including components, templates, and services.</p>
+      <button class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Start Course</button>
+    </div>
+ 
+    <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+      <h2 class="text-xl font-semibold text-indigo-700">TypeScript Mastery</h2>
+      <p class="mt-2 text-gray-600">Master TypeScript from basic types to advanced generics and decorators.</p>
+      <button class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700" routerLink="/user/access/2">Start Course</button>
+    </div>
+ 
+    <!-- Add more course cards dynamically -->
+  </div>
+</div>

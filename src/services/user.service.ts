@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
 export class UserService {
   private readonly userUsername = 'user';
   private readonly userPassword = 'user123';
-  private isLoggedIn = false;
+  private isLoggedIn = true;
 
   constructor(private router: Router) { }
 
