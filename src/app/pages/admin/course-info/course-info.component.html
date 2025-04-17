@@ -1,30 +1,52 @@
-<cdk-accordion class="example-accordion">
-    @for (item of items; track item; let index = $index) {
-      <cdk-accordion-item
-  
-        #accordionItem="cdkAccordionItem"
-        class="example-accordion-item"
-        role="button"
-        tabindex="0"
-        [attr.id]="'accordion-header-' + index"
-        [attr.aria-expanded]="accordionItem.expanded"
-        [attr.aria-controls]="'accordion-body-' + index">
-        <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
-          {{ item }}
-          <span class="example-accordion-item-description">
-            Click to {{ accordionItem.expanded ? 'close' : 'open' }}
-          </span>
-        </div>
-        <div
-          class="example-accordion-item-body"
-          role="region"
-          [style.display]="accordionItem.expanded ? '' : 'none'"
-          [attr.id]="'accordion-body-' + index"
-          [attr.aria-labelledby]="'accordion-header-' + index">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis
-          excepturi incidunt ipsum deleniti labore, tempore non nam doloribus blanditiis
-          veritatis illo autem iure aliquid ullam rem tenetur deserunt velit culpa?
-        </div>
-      </cdk-accordion-item>
-    }
-  </cdk-accordion>
+<div class="w-[90%] mx-auto mt-6 mb-4">
+  <h2 class="text-3xl font-bold text-center text-gray-800">Course Name: Angular Mastery</h2>
+</div>
+<div class="w-[90%]  flex items-center">
+  <button class="mt-4 px-6 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600">
+    Add New Video
+  </button>
+</div>
+
+<cdk-accordion class="mx-auto mt-6 p-6">
+  @for (item of items; track item; let index = $index) {
+  <cdk-accordion-item #accordionItem="cdkAccordionItem" class="mb-4 rounded-lg overflow-hidden" role="button"
+    tabindex="0" [attr.id]="'accordion-header-' + index" [attr.aria-expanded]="accordionItem.expanded"
+    [attr.aria-controls]="'accordion-body-' + index">
+
+    <div
+      class="flex justify-between items-center px-6 py-4 bg-gray-200 text-lg font-semibold cursor-pointer hover:bg-gray-300"
+      (click)="accordionItem.toggle()">
+      <span>{{ item }}</span>
+      <span class="text-sm text-gray-600">
+        Click to {{ accordionItem.expanded ? 'close' : 'open' }}
+      </span>
+    </div>
+
+    <div role="region" [style.display]="accordionItem.expanded ? '' : 'none'" [attr.id]="'accordion-body-' + index"
+      [attr.aria-labelledby]="'accordion-header-' + index" class="px-6 py-4 text-sm text-gray-700 space-y-4">
+
+      <div class="flex items-center gap-4">
+        <input
+          class="flex-1 border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="Edit video title" />
+        <input
+          class="flex-1 border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="Edit video name" />
+        <button mat-icon-button color="primary" matTooltip="Edit">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" matTooltip="Delete">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+
+    </div>
+  </cdk-accordion-item>
+  }
+  <div class="gap-4 flex justify-end">
+   
+    <button class="mt-4 px-6 py-2 bg-yellow-500 text-white font-semibold rounded-lg shadow-md hover:bg-yellow-600">
+      Update
+    </button>
+  </div>
+</cdk-accordion>
