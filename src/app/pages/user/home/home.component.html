@@ -1,0 +1,11 @@
+<div *ngIf="!isAuthenticated; else authorizedContent" class="flex flex-col items-center justify-center min-h-screen text-center">
+  <h2 class="text-3xl font-bold text-center text-gray-800">Welcome to Our Education Platform</h2>
+  <p class="text-lg text-gray-600 mt-4">Our platform offers a wide range of courses to help you learn and grow. Start your learning journey with us today!</p>
+</div>
+
+<ng-template #authorizedContent>
+  <div class="flex flex-col items-center justify-center min-h-screen text-center">
+    <h2 class="text-3xl font-bold text-center text-gray-800">Welcome Back!</h2>
+    <p class="text-lg text-gray-600 mt-4">You now have access to a variety of courses. Explore our library of learning materials and take your skills to the next level!</p>
+  </div>
+</ng-template>

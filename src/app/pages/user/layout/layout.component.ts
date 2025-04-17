@@ -7,26 +7,25 @@ import { RxdbProviderService } from "@services/rxdb.service";
 import { RootMenu } from "@typings/menu.type";
 import { environment } from "environments/environment.dev";
 import { MainContentComponent } from "@components/main-content/main-content.component";
+import { UserService } from "@services/user.service";
 
 @Component({
 	selector: "app-layout",
 	standalone: true,
-	imports: [CommonModule, RouterModule, MainContentComponent],
+	imports: [CommonModule, RouterModule,],
 	templateUrl: "./layout.component.html",
 	styleUrl: "./layout.component.css",
 })
 export class LayoutComponent {
-	environment = environment;
+	env = environment;
 
-	authService = inject(AuthService);
-	menuService = inject(MenuService);
-	rxdbProvider = inject(RxdbProviderService);
+	constructor(public adminAuthService: UserService) {}
 
-	rootMenu: RootMenu = this.menuService.rootMenu;
+	get isLoggedIn(): boolean {
+		return this.adminAuthService.isAuthenticated();
+	}
 
-	ngOnInit(): void {
-		if (!this.rxdbProvider.rxDatabase) {
-			this.rxdbProvider.intiRxDatabase("retubev1");
-		}
+	logout() {
+		this.adminAuthService.logout();
 	}
 }

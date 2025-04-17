@@ -4,17 +4,10 @@ import { authGuard } from "@guards/auth.guard";
 import { userGuard } from "@guards/user.guard";
 
 export const routes: Routes = [
-	// {
-	// 	path: "personal",
-	// 	loadComponent: () =>
-	// 		import("./pages/personal/personal.component").then(
-	// 			(c) => c.PersonalComponent,
-	// 		),
-	// 	canActivate: [userGuard],
-	// },
+
 	{
 		path: "login",
- loadComponent: () => import("./pages/user/login.component").then(c => c.LoginComponent)
+		loadComponent: () => import("./pages/user/login.component").then(c => c.LoginComponent)
 	},
 	{
 		path: "share-target",
@@ -87,6 +80,25 @@ export const routes: Routes = [
 			),
 		children: [
 			{
+				path: "home",
+				loadComponent: () =>
+					import("./pages/user/home/home.component").then(
+						(c) => c.HomeComponent,
+					),
+			}, {
+				path: "courses",
+				loadComponent: () =>
+					import("./pages/user/courses/courses.component").then(
+						(c) => c.CoursesComponent,
+					),
+			}, {
+				path: "access/:id",
+				loadComponent: () =>
+					import("./pages/user/access/access.component").then(
+						(c) => c.AccessComponent,
+					),
+			},
+			{
 				path: "free-playlist",
 				loadComponent: () =>
 					import("./pages/public/public.component").then(
@@ -99,23 +111,16 @@ export const routes: Routes = [
 			}
 		],
 	},
-	// {
-	// 	path: "",
-	// 	children: [
-	// 		{
-	// 			path: "public",
-	// 			loadComponent: () =>
-	// 				import("./pages/public/public.component").then(
-	// 					(c) => c.PublicComponent,
-	// 				),
-	// 		},
-	// 		{
-	// 			path: "",
-	// 			loadComponent: () =>
-	// 				import("./pages/home/home.component").then((c) => c.HomeComponent),
-	// 		},
-	// 	],
-	// },
+	{
+		path: "",
+		children: [
+			{
+				redirectTo: "/user/home",
+				pathMatch: "full",
+				path: "",
+			}
+		],
+	},
 	{
 		path: "**",
 		loadComponent: () =>
