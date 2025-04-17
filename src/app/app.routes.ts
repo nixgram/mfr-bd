@@ -14,11 +14,7 @@ export const routes: Routes = [
 	// },
 	{
 		path: "login",
-		loadComponent: () =>
-			import("./pages/auth/continue/continue.component").then(
-				(c) => c.ContinueComponent,
-			),
-		canActivate: [authGuard],
+ loadComponent: () => import("./pages/user/login.component").then(c => c.LoginComponent)
 	},
 	{
 		path: "share-target",
@@ -40,7 +36,7 @@ export const routes: Routes = [
 					import("./pages/admin/users/users.component").then(
 						(c) => c.UsersComponent,
 					),
-					canActivate:[adminGuard]
+				canActivate: [adminGuard]
 			},
 			{
 				path: "courses",
@@ -48,7 +44,7 @@ export const routes: Routes = [
 					import("./pages/admin/courses/courses.component").then(
 						(c) => c.CoursesComponent,
 					),
-					canActivate:[adminGuard]
+				canActivate: [adminGuard]
 
 			},
 			{
@@ -57,7 +53,7 @@ export const routes: Routes = [
 					import("./pages/admin/course-info/course-info.component").then(
 						(c) => c.CourseInfoComponent,
 					),
-					canActivate:[adminGuard]
+				canActivate: [adminGuard]
 
 			},
 			{
@@ -66,7 +62,7 @@ export const routes: Routes = [
 					import("./pages/admin/home/home.component").then(
 						(c) => c.HomeComponent,
 					),
-					canActivate:[adminGuard]
+				canActivate: [adminGuard]
 
 			},
 			{
@@ -97,6 +93,10 @@ export const routes: Routes = [
 						(c) => c.PublicComponent,
 					),
 			},
+			{
+				path: "login",
+				loadComponent: () => import("./pages/user/login.component").then(c => c.LoginComponent)
+			}
 		],
 	},
 	// {

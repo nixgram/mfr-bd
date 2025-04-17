@@ -2,7 +2,7 @@
   <div class="header__options header__options--always-visible">
     <div class="header__options--icon">
       <ng-container *ngTemplateOutlet="menu_icon"></ng-container>
-      <span routerLink="/" class="text-black dark:text-white">{{ env.appName }}</span>
+      <span routerLink="/user/home" class="text-black dark:text-white">{{ env.appName }}</span>
     </div>
     <!-- <ng-container *ngTemplateOutlet="header_menus"></ng-container> -->
     <ng-container *ngTemplateOutlet="header_buttons_phone"></ng-container>
@@ -67,7 +67,7 @@
     <a mat-raised-button color="accent" routerLink="#">{{ emptyMessage }}</a>
   </li>
   }
-  <li title="Toggle Theme">
+  <!-- <li title="Toggle Theme">
     <a mat-raised-button color="accent" (click)="toggleTheme()">
       @if (isDarkThemeEnable) {
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -83,7 +83,7 @@
       </svg>
       }
     </a>
-  </li>
+  </li> -->
 </ng-template>
 
 <ng-template #menu_icon>
