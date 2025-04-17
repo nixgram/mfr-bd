@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
+import { environment } from "environments/environment.dev";
+import { AdminAuthService } from "@services/admin-auth.service";
 
 @Component({
 	selector: "app-layout",
@@ -9,4 +11,16 @@ import { RouterModule } from "@angular/router";
 	templateUrl: "./layout.component.html",
 	styleUrl: "./layout.component.css",
 })
-export class LayoutComponent {}
+export class LayoutComponent {
+	env = environment;
+
+	constructor(public adminAuthService: AdminAuthService) {}
+
+	get isLoggedIn(): boolean {
+		return this.adminAuthService.isAuthenticated();
+	}
+
+	logout() {
+		this.adminAuthService.logout();
+	}
+}

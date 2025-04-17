@@ -1,4 +1,5 @@
 import { Routes } from "@angular/router";
+import { adminGuard } from "@guards/admin.guard";
 import { authGuard } from "@guards/auth.guard";
 import { userGuard } from "@guards/user.guard";
 
@@ -39,6 +40,7 @@ export const routes: Routes = [
 					import("./pages/admin/users/users.component").then(
 						(c) => c.UsersComponent,
 					),
+					canActivate:[adminGuard]
 			},
 			{
 				path: "courses",
@@ -46,6 +48,8 @@ export const routes: Routes = [
 					import("./pages/admin/courses/courses.component").then(
 						(c) => c.CoursesComponent,
 					),
+					canActivate:[adminGuard]
+
 			},
 			{
 				path: "course-info/:id",
@@ -53,12 +57,23 @@ export const routes: Routes = [
 					import("./pages/admin/course-info/course-info.component").then(
 						(c) => c.CourseInfoComponent,
 					),
+					canActivate:[adminGuard]
+
 			},
 			{
 				path: "home",
 				loadComponent: () =>
 					import("./pages/admin/home/home.component").then(
 						(c) => c.HomeComponent,
+					),
+					canActivate:[adminGuard]
+
+			},
+			{
+				path: "login",
+				loadComponent: () =>
+					import("./pages/admin/admin-login.component").then(
+						(c) => c.AdminLoginComponent,
 					),
 			},
 			{

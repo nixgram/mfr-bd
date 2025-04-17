@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  appName: 'Ré.Tube',
+  appName: 'MFR.BD',
   firebaseConfig: {
     apiKey: 'AIzaSyAbZrwolDiQP3vuY-LW8NMBJ4wmEDVR384',
     authDomain: 'relearn-717b6.firebaseapp.com',

@@ -36,7 +36,7 @@ import { OnChangeCallback, OnTouchedCallback } from '@utils/input.util';
 export class InputComponent implements ControlValueAccessor, Validator {
   @Input({ required: true }) placeholder!: string;
   @Input({ required: true }) label!: string;
-  @Input() type: 'text' | 'number' = 'text';
+  @Input() type: 'text' | 'number' | 'password' = 'text';
 
   value: string | null = null;
   protected formControl!: AbstractControl;
